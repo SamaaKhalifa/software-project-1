@@ -72,7 +72,7 @@ public class Main {
                     Playground p = new Playground(pName, locationn, availableHours, size, pricePerHour, cancellationPeriod);
                     System.out.println(p);
                     playgrounds.add(p);
-                    System.out.println(playgrounds.get(0));
+                  
 
 
                     break;
