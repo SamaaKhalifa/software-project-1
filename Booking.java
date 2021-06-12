@@ -1,31 +1,44 @@
 package com.company;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Booking {
-    private String place;
-    private String date;
-    private Playground playground=new Playground();
+    private Playground playground;
+    private int date;
     private Playground availablePlaygrounds[] =new Playground[100];
 
-    public Booking()
+
+
+
+    public Booking(int slot,Playground playground)
     {
-        place="";
-        date="";
-    }
+
+        this.date=slot;
+        this.playground=playground;
+        //float slotCount= playground.getAvailableHours();
+        float numOfBooking=playground.getSize()*2;
+        System.out.println("please choose \n 1-book whole playground for this slot \n 2-book for one player");
+        Scanner cin = new Scanner(System.in);
+        int opt=cin.nextInt();
+        if(opt==1 && numOfBooking==playground.s[slot-1].slotnumOfBooking){ //the number of books in this slot wasn't decreased
+            playground.availableSlots[slot-1]=" ";
+        }
+        else if(opt==2){
+            if(playground.s[slot-1].slotnumOfBooking==0){
+                playground.availableSlots[slot-1]=" ";
+            }
+            else  playground.s[slot-1].slotnumOfBooking--;
+        }
+        else
+            System.out.println("invalid option");
+
+        }
 
 
-    public Booking(String place,String date)
-    {
-        this.place=place;
-        this.date=date;
-    }
 
-    public void setPlace(String place) {
-        this.place = place;
-    }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 
@@ -33,11 +46,8 @@ public class Booking {
         this.playground = playground;
     }
 
-    public String getPlace() {
-        return place;
-    }
 
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
@@ -62,15 +72,15 @@ public class Booking {
     public void displayPlaygrounds(){
 
     }
-    public void filter(String A,String B ){
+    public void filter(String location,String slote ){
 
     }
-   /* public float calculate(Playground playground){
+    /* public float calculate(Playground playground){
 
-    }
-    public float recievePaymnt(){
+     }
+     public float recievePaymnt(){
 
-    }*/
+     }*/
     public void transfer(){
 
     }
@@ -79,8 +89,8 @@ public class Booking {
     }
     int noOfAvailablePlayground=0;
     public void addAvailiablePlayground(Playground playground){
-                availablePlaygrounds[noOfAvailablePlayground]= playground;
-                noOfAvailablePlayground++;
+        availablePlaygrounds[noOfAvailablePlayground]= playground;
+        noOfAvailablePlayground++;
 
     }
     public void inviteTeam(String B){}
