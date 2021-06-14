@@ -21,31 +21,32 @@ public class Booking {
      * @param slot is the slot in which player want to book a playground
      * @param playground is the playground that the player want to play in
      */
-    public Booking(int slot,Playground playground)
-    {
+    public Booking(int slot, Playground playground) {
 
-        this.date=slot;
-        this.playground=playground;
+        this.date = slot;
+        this.playground = playground;
         //float slotCount= playground.getAvailableHours();
-        float numOfBooking=playground.getSize()*2;
+        float numOfBooking = playground.getSize() * 2;
         System.out.println("please choose \n 1-book whole playground for this slot \n 2-book for one player");
         Scanner cin = new Scanner(System.in);
-        int opt=cin.nextInt();
-        if(opt==1 && numOfBooking==playground.s[slot-1].slotnumOfBooking){ //the number of books in this slot wasn't decreased
-            playground.availableSlots[slot-1]=" ";
+        int opt = cin.nextInt();
+        //book the whole slot
+        if (opt == 1 && numOfBooking == playground.s[slot - 1].slotnumOfBooking) { //the number of books in this slot wasn't decreased
+            playground.availableSlots[slot - 1] = " ";
             System.out.println("Done!");
 
-        }
-        else if(opt==2){
-            if(playground.s[slot-1].slotnumOfBooking==0){
-                playground.availableSlots[slot-1]=" ";
+        } else if (opt == 2) { //book one book from the slot
+            if (playground.s[slot - 1].slotnumOfBooking == 0) {
+                playground.availableSlots[slot - 1] = " ";
+            } else {
+                playground.s[slot - 1].slotnumOfBooking--;
+                //System.out.println(playground.s[slot - 1].slotnumOfBooking);
             }
-            else  playground.s[slot-1].slotnumOfBooking--;
-        }
-        else
+        } else {
             System.out.println("invalid option");
-
         }
+
+    }
 
 
     /**

@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Vector;
 
 /**
  * @author noura, samaa, sohaila
@@ -11,6 +12,7 @@ public class Owner extends User{
     Ewallet ewallet=new Ewallet();
     private Playground[] playgrounds=new Playground[1000];
     private Booking[] bookings=new Booking[1000];
+    public static Vector<Owner> owners = new Vector<Owner>();
 
     /**
      * this constructor that set the info of parent class user
@@ -21,8 +23,11 @@ public class Owner extends User{
      * @param nationalId is the national id of the user
      * @param phoneNumber is the phone number of the user
      */
+    int ocount=0;
     public Owner(String userName, String address, String email, String password, String nationalId, String phoneNumber) {
         super(userName, address, email, password, nationalId, phoneNumber);
+        owners.add(ocount, this);
+        ocount++;
     }
 
     /**
