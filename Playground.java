@@ -1,6 +1,13 @@
 package com.company;
 import java.util.ArrayList;
 
+/**
+ * @author sohaila,noura,samaa
+ */
+
+/**
+ * this class is to takes playground info from the owner
+ */
 
 public class Playground {
     private String name;
@@ -18,6 +25,10 @@ public class Playground {
     public String availableSlots[];
     public Slot[] s;
 
+    /**
+     * this constructor is a user with specified name, location..and so on
+     */
+
     public Playground()
     {
         name="";
@@ -33,6 +44,16 @@ public class Playground {
     public static ArrayList<Playground> playgrounds = new ArrayList<Playground>();
 
     public static int  playgroundCount=0;
+
+    /**
+     * this is a constructor that set the playground info
+     * @param name is the playground's name
+     * @param location the location of the playground
+     * @param availableHours the hours the playground available
+     * @param size the size of the playground
+     * @param pricePerHour the price per hour
+     * @param cancellationPeriod the cancellation period
+     */
     public Playground(String name,String location,int availableHours,int size,float pricePerHour,float cancellationPeriod)
     {
         this.name=name;
@@ -56,74 +77,135 @@ public class Playground {
     }
 
 
-
-
-
-
+    /**
+     * this function is to set the name
+     * @param name is the playground's name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * this function is to set the location
+     * @param location is the playground's location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     * this function is to set the available hours in the playground per day
+     * @param availableHours the available hours in the playground per day
+     */
     public void setAvailableHours(int availableHours) {
         this.availableHours = availableHours;
     }
+
+    /**
+     * this function is to set the size of the players in playground per team
+     * @param size players per team
+     */
 
     public void setSize(int size) {
         this.size = size;
     }
 
+    /**
+     * this function is to set the price per hour in the playground
+     * @param pricePerHour the price of playground per hour
+     */
     public void setPricePerHour(float pricePerHour) {
         this.pricePerHour = pricePerHour;
     }
 
+    /**
+     * this function set the period the player can cancel within
+     * @param cancellationPeriod the period the player can cancel within
+     */
     public void setCancellationPeriod(float cancellationPeriod) {
         this.cancellationPeriod = cancellationPeriod;
     }
 
+    /**
+     * this function is to set the feedback
+     * @param feedback the playground's feedback
+     */
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
 
+    /**
+     * this function is to set the status of the playground
+     * @param status the playground's status
+     */
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * this function is to get the playground's name
+     * @return playground's name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * this function is to get the playground's location
+     * @return playground's location
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     * this function is to get the playground's available hours
+     * @return playground's available hours
+     */
     public float getAvailableHours() {
         return availableHours;
     }
 
+    /**
+     * this function is to get the playground's size
+     * @return playground's size
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * this function is to get the playground's price per hour
+     * @return playground's price per hour
+     */
     public float getPricePerHour() {
         return pricePerHour;
     }
 
+    /**
+     * this function is to get the playground's cancellation period
+     * @return playground's cancellation period
+     */
     public double getCancellationPeriod() {
         return cancellationPeriod;
     }
 
+    /**
+     * this function is to get the playground's feedback
+     * @return playground's feedback
+     */
     public String getFeedback() {
         return feedback;
     }
 
+    /**
+     * this function is to get the playground's status
+     * @return playground's status
+     */
     public String getStatus() {
         return status;
     }
-
+    @Override
     public String toString() {
         return "Playground{" +
                 "name='" + name + '\'' +

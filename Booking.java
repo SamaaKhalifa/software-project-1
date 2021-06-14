@@ -3,14 +3,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * @author noura, samaa, sohaila
+ *
+ */
+
+/**
+ * this is class booking that takes booking info (slot, playground)
+ */
 public class Booking {
     private Playground playground;
     private int date;
     private Playground availablePlaygrounds[] =new Playground[100];
 
-
-
-
+    /**
+     * this is a function that takes slot and playground and set them
+     * @param slot is the slot in which player want to book a playground
+     * @param playground is the playground that the player want to play in
+     */
     public Booking(int slot,Playground playground)
     {
 
@@ -23,6 +33,8 @@ public class Booking {
         int opt=cin.nextInt();
         if(opt==1 && numOfBooking==playground.s[slot-1].slotnumOfBooking){ //the number of books in this slot wasn't decreased
             playground.availableSlots[slot-1]=" ";
+            System.out.println("Done!");
+
         }
         else if(opt==2){
             if(playground.s[slot-1].slotnumOfBooking==0){
@@ -36,21 +48,35 @@ public class Booking {
         }
 
 
-
+    /**
+     * this function is to set a slot
+     * @param date is the slot
+     */
 
     public void setDate(int date) {
         this.date = date;
     }
 
+    /**
+     * this function is to set the playground
+     * @param playground is object from class playground
+     */
     public void setPlayground(Playground playground) {
         this.playground = playground;
     }
 
-
+    /**
+     * this function is to return the slot
+     * @return slot
+     */
     public int getDate() {
         return date;
     }
 
+    /**
+     * this function is to return a playground
+     * @return playground
+     */
     public Playground getPlayground() {
         return playground;
     }
